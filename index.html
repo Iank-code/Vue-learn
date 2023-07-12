@@ -29,19 +29,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li v-for="(link, index) in links" class="nav-item" :key="index">
+            <li v-for="(page, index) in pages" class="nav-item" :key="index">
               <a
                 class="nav-link active"
                 aria-current="page"
-                v-bind:href="link.url"
-                >{{link.text}}</a
+                v-bind:href="page.link.url"
+                >{{ page.link.text }}</a
               >
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div id="content">{{ pageTitle }}</div>
+    <div id="content">{{ page.pageTitle }}</div>
   </body>
   <script>
     const { createApp, ref } = Vue;
@@ -50,11 +50,21 @@
       data() {
         // const message = ref("Hello vue!. This is a vue app");
         return {
-          pageTitle: "Hello vue!. This is a vue app",
-          links: [
-            { text: "Home", url: "home.html" },
-            { text: "Contact", url: "contact.html" },
-            { text: "About", url: "about.html" },
+          pages: [
+            {                
+              pageTitle: "About Page",
+              link: { text: "About", url: "about.html" },
+            },
+
+            {
+              pageTitle: "Home Page",
+              link: { text: "Home", url: "index.html" },
+            },
+
+            {
+              pageTitle: "Contact Page",
+              link: { text: "Contact", url: "contact.html" },
+            },
           ],
         };
       },
