@@ -48,7 +48,9 @@
 
     createApp({
       data() {
+        // const message = ref("Hello vue!. This is a vue app");
         return {
+          pageTitle: "Hello vue!. This is a vue app",
           links: [
             { text: "Home", url: "home.html" },
             { text: "Contact", url: "contact.html" },
@@ -56,15 +58,6 @@
           ],
         };
       },
-    }).mount("nav");
-
-    createApp({
-      data() {
-        // const message = ref("Hello vue!. This is a vue app");
-        return {
-          pageTitle: "Hello vue!. This is a vue app",
-        };
-      },
-    }).mount("#content");
+    }).mount("body");
   </script>
 </html>
